@@ -140,7 +140,7 @@ class TestPickedToAicKwargs:
         self._assert_identity(kw)
 
     def test_hybrid_tep_plus_dp(self):
-        # Hybrid: attention TP=2 × DP=4, MoE TP=2 × EP=4, 8 physical GPUs.
+        # Hybrid: attention TP=2 x DP=4, MoE TP=2 x EP=4, 8 physical GPUs.
         p = PickedParallelConfig(tp=2, pp=1, dp=4, moe_tp=2, moe_ep=4)
         kw = picked_to_aic_model_config_kwargs(p)
         assert kw["tp_size"] == 2
